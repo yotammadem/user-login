@@ -44,6 +44,33 @@
 				<version>8.0.0</version>
 				<extensions>true</extensions>
 			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<id>deploy-adapter</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>curl</executable>
+							<arguments>
+								<argument>-X</argument>
+								<argument>POST</argument>
+								<argument>-u</argument>
+								<argument>${mfpfUser}:${mfpfPassword}</argument>
+								<argument>-F</argument>
+								<argument>file=@target/userLogin.adapter</argument>
+								<argument>${mfpfUrl}/management-apis/2.0/runtimes/mfp/adapters</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
