@@ -11,7 +11,7 @@
 	xmlns:http="http://www.ibm.com/mfp/integration/http">
 
 	<displayName>UserLogin</displayName>
-	<description>UserLogin</description>
+	<description>UserLogin - user login check!!!</description>
 
 	<securityCheckDefinition name="UserLogin" class="com.sample.UserLoginSecurityCheck">
 		<property name="maxAttempts" defaultValue="3" displayName="How many attempts are allowed"/>
